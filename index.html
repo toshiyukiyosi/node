@@ -6,6 +6,31 @@
     <title>Signaling Test</title>
 </head>
 <body>
-    <button onclick="startVideo">Start Video</button>
+    <button onclick="startVideo()">Start Video</button>
+    <buttn onclick="stopVideo()">Stop Video</buttn>
+    &nbsp;
+    <button onclick="connect()">Connect</button>
+    <button onclick="hangUp()">hangUp</button>
+    <video src="" id="local_video" autoplay style="width: 160xp; height: 120xp; border: 1px solid black;"></video>
+    <video src="" id="remote_video" autoplay style="width: 160xp; height: 120xp; border: 1px solid black;"></video>
+    <div class="">
+        <p>SDP send: <br>
+        <textarea name="text_for_send_sdp" id="text_for_send_sdp" cols="60" rows="5" readonly="readonly">SDP send</textarea><!-- /# -->
+    </p>
+    <p>
+        sdp to receive;&nbsp;
+        <button onclick="onSdptext()">Receive remote SDP</button><br>
+        <textarea name="text_for_receive_sdp"  id="text_for_receive_sdp" cols="60" rows="5"></textarea><!-- /# -->
+    </p>    
+    </div><!-- /. -->
 </body>
+<script type="text/javascript">
+    let loaclVideo = document.getElementById('local_video');
+    let remoteVideo = document.getElementById('remote_video');
+    let localStream = null;
+    let peerConnection = null;
+    let textForSendSdp = document.getElementById('text_for_send_sdp');
+    let textToReceiveSdp = document.getElementById('text_for_receive_sdp');
+    
+</script>
 </html>
